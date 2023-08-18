@@ -45,9 +45,7 @@ namespace Pi2
                     best = decimal.Parse(ND_file_Arr[2]);
                     totalIterations = long.Parse(ND_file_Arr[3]);
 
-                    //n_decimal = long.Parse(nd_from_file.Substring(0, nd_from_file.IndexOf(";"))); // length needs to be from 0 to ;
-                    //d_decimal = long.Parse(nd_from_file.Substring(nd_from_file.LastIndexOf(";") + 1));
-                    //best = decimal.Parse(nd_from_file.Substring(0, 1));
+                   
 
                 }
                 catch 
@@ -101,7 +99,7 @@ namespace Pi2
             * First, I will start with n = d = 1.
             If n/d is less than pi, I will increase n by 1.
             If n/d is greater than pi, I will increase d by 1.
-            R epeat the above until my computer complains.
+            Repeat the above until my computer complains.
              * 
              * Todo: bigint thingy for C#
              */
