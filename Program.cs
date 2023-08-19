@@ -104,24 +104,23 @@ namespace Pi2
              * Todo: bigint thingy for C#
              */
 
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
             read_N_D();
 
+            long CustIterations = 0;
             if (args.Length == 0)
             {
-                Console.WriteLine("Default: 100 000 000 iterations, should take 10 seconds or so");
-                DoCalculate(80000000);
+                Console.WriteLine("Default: 50 000 000 iterations, should take 10 seconds or so");
+                CustIterations = 50000000;
+                DoCalculate(CustIterations);
             }
             else if(args.Length == 1)
             {
-                DoCalculate(long.Parse(args[0]));
+                CustIterations = long.Parse(args[0]);
+                DoCalculate(CustIterations);
             }
-
-
-            
-
-           
-            
-
 
 
             using StreamWriter file_nd = new("N_D.txt", false);
@@ -130,6 +129,15 @@ namespace Pi2
 
 
 
+
+            sw.Stop();
+
+
+            TimeSpan timeSpan = sw.Elapsed;
+
+            Console.WriteLine("Total time taken: {0}h {1}m {2}s {3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+            Console.WriteLine("Total milliseconds: {0} ms",  timeSpan.TotalMilliseconds);
+            Console.WriteLine("Ticks nanoseconds per iteration: {0} ns", timeSpan.TotalNanoseconds / CustIterations);
 
 
 
